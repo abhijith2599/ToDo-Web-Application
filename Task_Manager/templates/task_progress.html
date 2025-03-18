@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+    <style>
+        #taskChart {
+            max-width: 400px;  /* Set max width */
+            max-height: 400px; /* Set max height */
+            margin: auto; /* Center the chart */
+            display: block;
+        }
+        canvas {
+            max-width: 100%;  
+            height: auto;  
+        }
+    </style>
+    
+
+</head>
+
+<body>
+
+    <!-- <table>
+
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr>
+                <td>Total task</td>
+                <td>{{total}}</td>
+            </tr>
+            <tr>
+                <td>Completed</td>
+                <td>{{completed}}</td>
+            </tr>
+            <tr>
+                <td>Incomplete</td>
+                <td>{{incomplete}}</td>
+            </tr>
+        </tbody>
+
+    </table> -->
+
+    <h2 style="text-align: center;">Task Progress</h2>
+    
+    <div id="chart-container">
+        <canvas id="taskChart"></canvas>  
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var ctx = document.getElementById("taskChart").getContext("2d");
+
+            var taskData = JSON.parse('{{ chart_data|escapejs }}'); // Fix JSON parsing
+
+            var taskChart = new Chart(ctx, {
+                type: "pie", 
+                data: {
+                    labels: ["Completed", "Incomplete", "Total"],
+                    datasets: [{
+                        data: taskData,
+                        backgroundColor: ["#4CAF50", "#FF5733", "#3498db"],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,  
+                    plugins: {
+                        legend: { position: 'top' } 
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
