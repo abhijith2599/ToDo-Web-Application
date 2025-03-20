@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <style>
         #taskChart {
             max-width: 400px;  /* Set max width */
@@ -23,37 +24,13 @@
 
 <body>
 
-    <!-- <table>
-
-        <thead>
-            <tr>
-                <th>Task</th>
-                <th>Count</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <tr>
-                <td>Total task</td>
-                <td>{{total}}</td>
-            </tr>
-            <tr>
-                <td>Completed</td>
-                <td>{{completed}}</td>
-            </tr>
-            <tr>
-                <td>Incomplete</td>
-                <td>{{incomplete}}</td>
-            </tr>
-        </tbody>
-
-    </table> -->
-
     <h2 style="text-align: center;">Task Progress</h2>
     
     <div id="chart-container">
         <canvas id="taskChart"></canvas>  
     </div>
+
+        <a href="{%url 'userpage'%}" style="text-decoration: none;"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #1b4998;"> Userpage</i></a>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

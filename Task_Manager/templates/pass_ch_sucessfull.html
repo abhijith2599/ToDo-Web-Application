@@ -25,7 +25,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
 
                   <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="http://127.0.0.1:8000/Task_manager/home/"><i class="fa-solid fa-house me-3" style="color: #ffffff;"></i>Home</a>
+                    <a class="nav-link active text-white" aria-current="page" href="{%url 'home' %}"><i class="fa-solid fa-house me-3" style="color: #ffffff;"></i>Home</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white" href="#">About</a>
@@ -40,7 +40,7 @@
             <!-- body content -->
     <h2 style="text-align: center; margin-top: 30px;">Password Changed Sucessfully</h2>
     <br>
-    <span style="text-align: center;">Click here to Go back to <a href="http://127.0.0.1:8000/Task_manager/login/">LogIn</a> Page</span>
+    <span style="text-align: center;">Click here to Go back to <a href="{% url 'login' %}">LogIn</a> Page</span>
 
 </body>
 </html>

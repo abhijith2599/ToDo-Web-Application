@@ -116,7 +116,7 @@ class User_SignUp_View(View):
 
         else:
 
-            return redirect('signup')
+            return redirect('signup') 
 
 
 @method_decorator(decorator=loggedin,name='dispatch')
@@ -258,6 +258,7 @@ class TaskUpdate_view(View):
 
         if form.is_valid():
 
+            data.Status=False
             form.save()
             messages.success(request,"Task Updated successfully")
             return redirect('userpage')

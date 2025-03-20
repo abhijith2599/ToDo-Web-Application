@@ -190,6 +190,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-black shadow">
@@ -204,7 +205,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" 
-                           href="http://127.0.0.1:8000/Task_manager/home/">
+                           href="{% url 'home' %}">
                             <i class="fa-solid fa-house me-3" style="color: #ffffff;"></i>Home
                         </a>
                     </li>
@@ -234,11 +235,11 @@
             {% endif %}
             <div style="margin-bottom: 1rem;">
                 <span>Already a User</span><br>
-                <a href="http://127.0.0.1:8000/Task_manager/login/" class="welcome-btn mt-2">Log In</a>
+                <a href="{%url 'login' %}" class="welcome-btn mt-2">Log In</a>
             </div>
             <div>
                 <span>New User</span><br>
-                <a href="http://127.0.0.1:8000/Task_manager/signup/" class="welcome-btn mt-2">Sign Up</a>
+                <a href="{% url 'signup' %}" class="welcome-btn mt-2">Sign Up</a>
             </div>
         </div>
 
@@ -255,7 +256,8 @@
             if (scrollPosition > 50) {
                 welcomeContent.classList.add('visible');
                 appName.classList.add('blurred');
-            } else {
+            } 
+            else {
                 welcomeContent.classList.remove('visible');
                 appName.classList.remove('blurred');
             }
